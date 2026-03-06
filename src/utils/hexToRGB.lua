@@ -1,6 +1,6 @@
 local hexToRGB = {}
 
-function hexToRGB.convert(hex) -- Використовуємо hexToRGB.convert замість hexToRGB(hex)
+function hexToRGB.convert(hex)
     hex = hex:gsub("#", "")
     if #hex == 6 then
         local r = tonumber(hex:sub(1, 2), 16) / 255
@@ -12,4 +12,4 @@ function hexToRGB.convert(hex) -- Використовуємо hexToRGB.convert 
     end
 end
 
-return hexToRGB -- Повертаємо таблицю з функцією
+return hexToRGB
