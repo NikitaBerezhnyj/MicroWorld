@@ -3,8 +3,13 @@ local Settings       = require("utils.settings")
 local Header         = require("ui.header")
 local Button         = require("ui.button")
 local Dropdown       = require("ui.dropdown")
+
 local SettingsScreen = {}
-local title, dropdown, backButton
+
+local title
+local dropdown
+local backButton
+
 
 local function buildLayout()
     local W, H = love.graphics.getDimensions()
@@ -24,9 +29,10 @@ local function buildLayout()
     )
 
     backButton = Button:new("Back", cx, H * 0.58, bw, 50, function()
-        ScreenManager.switch("menu")
+        ScreenManager.pop()
     end)
 end
+
 
 function SettingsScreen:load()
     buildLayout()
@@ -36,7 +42,8 @@ function SettingsScreen:resize(w, h)
     buildLayout()
 end
 
-function SettingsScreen:update(dt) end
+function SettingsScreen:update(dt)
+end
 
 function SettingsScreen:draw()
     local W, H = love.graphics.getDimensions()
@@ -61,7 +68,7 @@ end
 
 function SettingsScreen:keypressed(key)
     if key == "escape" then
-        ScreenManager.switch("menu")
+        ScreenManager.pop()
     end
 end
 

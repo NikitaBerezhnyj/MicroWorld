@@ -1,6 +1,7 @@
 local ScreenManager  = require("utils.screenManager")
 local MenuScreen     = require("screens.menuScreen")
 local GameScreen     = require("screens.gameScreen")
+local LoadScreen     = require("screens.loadScreen")
 local SettingsScreen = require("screens.settingsScreen")
 local hexToRGB       = require("utils.hexToRGB")
 
@@ -8,9 +9,12 @@ function love.load()
     math.randomseed(os.time())
     love.graphics.setDefaultFilter("nearest", "nearest")
     love.graphics.setBackgroundColor(hexToRGB.convert("#092327"))
+
     ScreenManager.register("menu", MenuScreen)
     ScreenManager.register("game", GameScreen)
+    ScreenManager.register("load", LoadScreen)
     ScreenManager.register("settings", SettingsScreen)
+
     ScreenManager.switch("menu")
 end
 
